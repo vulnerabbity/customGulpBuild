@@ -4,7 +4,6 @@ const {src, dest, watch, series, parallel} = require('gulp')
 const browserSync = require('browser-sync').create()
 const sass        = require('gulp-sass')(require('sass'));
 const cssMin      = require('gulp-clean-css')
-const concat      = require('gulp-concat')
 const rename      = require('gulp-rename')
 const pug         = require('gulp-pug')
 const imagemin    = require('gulp-imagemin')
@@ -18,14 +17,11 @@ const imagesSrc            = `src/images`
 const imagesDest           = `dist/images`
 
 const styleSrc             = `src/scss`
-const styleSrcFile         = `app.scss`
 const styleDest            = `dist/css`
-const styleDestFile        = `app.min.css`
 
 const markupSrc            = `src/pug`
-const markupSrcFile        = `index.pug`
 const markupDest           = `dist`
-const markupDestFile       = `index.html`
+
 
 const scriptsSrc           = `src/scripts`
 const scriptsDest          = `dist/scripts`
@@ -89,7 +85,7 @@ function markup() {
 } 
 
 function cleanMarkup() {
-  return del(`${markupDest}/${markupDestFile}`)
+  return del(`${markupDest}/**/*.html`)
 }
 
 function scripts () {
